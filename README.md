@@ -4,6 +4,8 @@ Predict the chance that any Division I basketball team beats any other, men's an
 
 **Brier 0.1209 · 29th of 3,462 (top 1%) · silver medal · one submission, made before the bracket was announced**
 
+**Full solution write-up: [WRITEUP.md](WRITEUP.md)** (features, validation, blend, post-processing, what didn't work).
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="figures/leaderboard-dark.png">
   <img src="figures/leaderboard-light.png" alt="Histogram of 3,462 leaderboard scores. Mine, 0.1209, is 29th; the median is 0.1434.">
@@ -63,7 +65,7 @@ flowchart LR
 ```bash
 pip install -r requirements.txt
 kaggle competitions download -c march-machine-learning-mania-2026 -p data && unzip -q data/*.zip -d data
-python mania.py         # under 10 s; writes submission.csv for all 132,133 matchups
+python mania.py         # about 15 s; writes submission.csv for all 132,133 matchups
 python test_mania.py    # sanity checks for the rating math
 jupyter lab march_mania_2026.ipynb
 ```
@@ -74,6 +76,7 @@ jupyter lab march_mania_2026.ipynb
 
 | File | What it is |
 |---|---|
+| [`WRITEUP.md`](WRITEUP.md) | Solution write-up in the Kaggle format |
 | [`mania.py`](mania.py) | The whole pipeline: features, ratings, models, blend, submission |
 | [`march_mania_2026.ipynb`](march_mania_2026.ipynb) | Data analysis, model evaluation and the 2026 results |
 | [`results/submitted_2026.csv`](results/submitted_2026.csv) | The file submitted to Kaggle |
